@@ -1,8 +1,16 @@
 __author__ = 'Eric'
-import os
 #this appends the head and body tags to a file
 #MAIN METHOD
 
+import get_text_filev1
+import nav_bar
+
+def driver():
+    files = get_text_filev1.driver()
+    #inject_html('blog_4.html', None)
+    for i in range(len(files)):
+        inject_html(files[i], None)
+    return 0
 
 def inject_html(file_name, pure_text):
     raw = []  #GLOBAL variable for storing the data of the text file
@@ -15,13 +23,13 @@ def inject_html(file_name, pure_text):
     # raw[0] is where the header information is from the insert_header tags are
     # the rest of the list holds the text
     insert_body(raw)
-    print(raw)  #visual debugging
-    print(raw[1:len(raw)])
+    #print(raw)  #visual debugging
+    #print(raw[1:len(raw)])
 
 #if pure text, insert the <p> tags around it
 
 
-    file = open('test.html', 'w')
+    file = open(file_name, 'w')
 ##Code to write back into the file
     for i in range(len(raw)):
         for j in range(len(raw[i])):
@@ -39,7 +47,7 @@ def insert_header(fname):
     title = '  <title>\n'
     f_name = fname + '\n'
     cl_title = '  </title>\n'
-    css = '<link href = "/styles.css" rel="stylesheet" type="text/css">\n'  #css link !!MAY NEED REVISED!!
+    css = '<link href = "styles.css" rel="stylesheet" type="text/css">\n'  #css link !!MAY NEED REVISED!!
     cl_head = ' </head>\n'
     #now append all the elements to the list, and return it
     temp = [doc_type, meta_1, meta_2, html, head, title, f_name, cl_title, css, cl_head]
@@ -48,18 +56,22 @@ def insert_header(fname):
 #Method in order to insert the body tags and the following closing html tag
 def insert_body(text):
     body = ' <body>\n'
-    nav = nav_bar()
+    nav = nav_bar.insert_nav_bar(get_text_filev1.get_folder_name())
+    for i in range(2):
+        nav.append('<br>')
     paragraph =  '  <p>\n'
     cl_paragraph = '  </p>\n'
     cl_body = ' </body>\n'
     cl_html = '</html>'
     bod = [body, paragraph]
+    header = [' <header> <h1> Telescopium Conscientia </h1>  </header>\n']
     cl_bod = [cl_paragraph, cl_body, cl_html]
     text.insert(1, body)
-    text.insert(2, nav)
-    text.insert(3, paragraph)
+    text.insert(2, header)
+    text.insert(3, nav)
+    text.insert(4, paragraph)
     text.insert(len(text), cl_bod)
     #text.append('</html>\n')
-inject_html('blog_4.html', None)
+driver()
 
 #NEED TO DO SOMETHING ABOUT TITLE TEXT, POSSIBLE PROMPT, BUT FOR NOW PARSE OUT THE .HTML PART
