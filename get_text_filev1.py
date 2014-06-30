@@ -39,8 +39,8 @@ def parse_list(listy):
     files = []
     for i in range(len(listy)):
         file=listy[i]
-        file_ext = file[len(file)-4:len(file)]
-        if file_ext == 'html':
+        file_ext = file[len(file)-5:len(file)]
+        if file_ext == '.html':
             cmd = ['head', '-n', '1', file]    # This will pull the first line out of the file to html check
               #THIS IS WHERE THE INDEX OUT OF BOUNDS ERROR IS OCCURRING FROM
             x = (subprocess.Popen(cmd, stdout=subprocess.PIPE)).communicate()

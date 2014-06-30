@@ -72,6 +72,6 @@ def insert_body(text):
     text.insert(4, paragraph)
     text.insert(len(text), cl_bod)
     #text.append('</html>\n')
-driver()
+#driver()
 
 #NEED TO DO SOMETHING ABOUT TITLE TEXT, POSSIBLE PROMPT, BUT FOR NOW PARSE OUT THE .HTML PART
