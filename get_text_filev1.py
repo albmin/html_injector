@@ -6,8 +6,8 @@ __author__ = 'Eric'
 import subprocess
 
 #driver method that gets the list of files that need html formatting done to them
-def driver():
-    f_list = get_files()
+def driver(path):
+    f_list = get_files(path)
     #folder = get_folder_name()
    # print(f_list)
     #print(folder)
@@ -21,9 +21,9 @@ def get_folder_name():
     return path
 #get file method, i really don't think there are any other methods that i need
 
-def get_files():
+def get_files(path):
     #find the files that are in a folder
-    x = (subprocess.Popen('ls', stdout=subprocess.PIPE)).communicate()
+    x = (subprocess.Popen(['ls', path], stdout=subprocess.PIPE)).communicate()
     #print(x)
     files = str(x[0])
     files = files[2:len(files)-1]  #THIS LINE IS SCREWING UP THE FIRST LINE OF OUTPUT

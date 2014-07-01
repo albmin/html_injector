@@ -5,18 +5,19 @@ __author__ = 'Eric'
 import get_text_filev1
 import nav_bar
 
-def driver():
-    files = get_text_filev1.driver()
+def driver(path):
+    files = get_text_filev1.driver(path)
     #inject_html('blog_4.html', None)
     for i in range(len(files)):
-        inject_html(files[i], None)
+        inject_html(path, files[i], None)
     return 0
 
-def inject_html(file_name, pure_text):
+def inject_html(path,file_name, pure_text):
     raw = []  #GLOBAL variable for storing the data of the text file
     raw.append(insert_header(file_name))  #method call for header text, takes in the file_name
     #read in the file and store each line as a list (nested list prolly not necessary)
-    with open(file_name)as f:
+    file = path + '/' + file_name
+    with open(file)as f:
         for line in f:
             raw.append([line])  #lines will be read in one at a time
             raw.append('<br>\n')
