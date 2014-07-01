@@ -57,4 +57,4 @@ def parse_list(listy):
                 files.append(file)
     return files
 
-driver()
+#driver()

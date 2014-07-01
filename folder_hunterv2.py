@@ -4,7 +4,7 @@ import os
 import main_html
 #main method
 def driver(path):
-
+    print(path)
     main_html.driver(path)
     sub = get_subs(path)
     for i in range(len(sub)):
