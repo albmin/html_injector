@@ -12,7 +12,6 @@ import main_html
 #      --- along with the path/directory to look for additional subdirectories to inject into
 #RETURN -- returns 0 if it works, something else if not
 def driver(path):
-    print(path)
     main_html.driver(path)
     sub = get_subs(path)
     for i in range(len(sub)):

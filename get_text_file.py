@@ -55,3 +55,16 @@ def parse_list(listy):
             if text[0] != '<':
                 files.append(file)
     return files
+
+
+#method to get the folder name of the current directory that this file is
+#located in
+#PARAM -- None
+#RETURN -- string indicating current path
+def get_folder_name():
+    x = (subprocess.Popen('pwd', stdout=subprocess.PIPE)).communicate()
+    path = str(x[0])
+    path = path.split('/')
+    path = (path[-1])
+    path = path[0:len(path)-3]
+    return path
