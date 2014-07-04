@@ -1,13 +1,15 @@
 __author__ = 'Eric'
 
-#This is a method to implement a navigation bar, which is required on every visible
+#SEE LICENSE.txt for this program's licensing
+
+#This is a class containg methods to implement a navigation bar, which is required on every visible
 #page. To be implemented in the html_injector directory and called upon from the
 # main_html file
 
-
-
+#method to add the nav_bar formatting to the html
+#PARAM -- folder name in order to determine the div class it resides under
+#RETURN -- list conraining the html for the nav bar
 def insert_nav_bar(folder_name):
-    temp = []
     main_div='    <div class="nav_bar">\n'
     div = '     <div class="'
     div += str(determine_link(folder_name))
@@ -19,12 +21,8 @@ def insert_nav_bar(folder_name):
     li5 = '<li><a href="/ops/comment.html" class="commentLink">Feedback</a></li>\n'
     li6 = '<li><a href="/ops/links.html" class="linksLink">Links</a></li>\n'
     cl_div = '</div>\n'
-    temp=[main_div, div, li1,li2,li3,li4,li5,li6,cl_div,cl_div]
-    return temp
-# This doesn't have the underline in it like it should, stupid firefox screws it up
+    return [main_div, div, li1,li2,li3,li4,li5,li6,cl_div,cl_div]
 
-#this method needs revised as to where it takes in the parameter of a list which contains
-#the links that are put into the nav_bar, but I want to be lazy right now and just copypaste
 
 #this method determines the link that will be used on the navigation bar from the folder name
 #THIS METHOD MUST BE UPDATED WHEN THE NAV BAR IS!!
@@ -42,7 +40,3 @@ def determine_link(folder):
         return 'homeLink'
     if folder =='projects':
         return 'projectLink'
-
-#DEBUG CODE
-#x=insert_nav_bar('test')
-#print(x)
