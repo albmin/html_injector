@@ -28,17 +28,17 @@ def get_files(path):
     files = files[2:len(files)-1]
     #parse out the file names from the ridiculously large string
     raw_file_list = files.split('\\n')
-    file_list = parse_list(raw_file_list)
+    file_list = parse_list(raw_file_list, path)
     return file_list
 
 
 #method that parses a list of files, looking for the html's, called by get_files()
 #PARAM -- list that contains all of the files from get_files()
 #RETURN -- returns a list of html files that need formatted with html
-def parse_list(listy):
+def parse_list(listy, path):
     files = []
     for i in range(len(listy)):
-        file=listy[i]
+        file=path + '/' + listy[i]
         file_ext = file[len(file)-5:len(file)]
         if file_ext == '.html':
             cmd = ['head', '-n', '1', file]    # This will pull the first line out of the file to html check

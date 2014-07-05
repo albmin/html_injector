@@ -33,11 +33,11 @@ def inject_html(path,file_name):
     # raw[0] is where the header information is from the insert_header tags are
     # the rest of the list holds the text
     insert_body(raw)
-    file = open(file_name, 'w')
+    f = open(file, 'w')
     #Code to write back into the file
     for i in range(len(raw)):
         for j in range(len(raw[i])):
-            file.write(raw[i][j])
+            f.write(raw[i][j])
 
 
 #method for inserting the doctype, meta tags, opening html, title, and head
