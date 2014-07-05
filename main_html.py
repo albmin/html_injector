@@ -25,7 +25,7 @@ def inject_html(path,file_name):
     raw = []  #GLOBAL variable for storing the data of the text file
     raw.append(insert_header(file_name))  #method call for header text, takes in the file_name
     #read in the file and store each line as a list (nested list prolly not necessary)
-    file = path + '/' + file_name
+    file =  file_name
     with open(file)as f:
         for line in f:
             raw.append([line])  #lines will be read in one at a time
