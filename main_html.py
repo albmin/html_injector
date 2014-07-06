@@ -52,7 +52,7 @@ def insert_header(fname):
     title = '  <title>\n'
     f_name = fname + '\n'
     cl_title = '  </title>\n'
-    css = '<link href = "styles.css" rel="stylesheet" type="text/css">\n'  #css link !!MAY NEED REVISED!!
+    css = '<link href = "/styles.css" rel="stylesheet" type="text/css">\n'  #css link !!MAY NEED REVISED!!
     cl_head = ' </head>\n'
     #now append all the elements to the list, and return it
     return [doc_type, meta_1, meta_2, html, head, title, f_name, cl_title, css, cl_head]
